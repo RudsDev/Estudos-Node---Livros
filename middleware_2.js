@@ -11,15 +11,12 @@ var App = () =>{
 
   const _runMids = index=>{
     if(index<middlewares.length){
-      console.log(index);
       middlewares[index].call(null,()=>_runMids(++index));
     }
-    //middlewares.forEach(cb => cb.call(null,()=>_runMids(index++)));
   }
   
   
   const get = ()=>{
-    console.log(middlewares);
     _runMids(0);
     console.log('Run get')
   }
@@ -29,8 +26,8 @@ var App = () =>{
 const app = App();
 
 const md0 = next=>{console.log(`Fibbonaci de ${30} = ${fib(30)}`);next()};
-const md1 = next=>{console.log(`Fibbonaci de ${40} = ${fib(40)}`);next()};
-const md2 = next=>{console.log(`Fibbonaci de ${45} = ${fib(45)}`);next()};
+const md1 = next=>{console.log(`Fibbonaci de ${35} = ${fib(35)}`);next()};
+const md2 = next=>{console.log(`Fibbonaci de ${40} = ${fib(40)}`);next()};
 
 const md3 = next=>{console.log('MDW-3');next()};
 const md4 = next=>{console.log('MDW-4');next()};
