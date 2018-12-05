@@ -1,3 +1,8 @@
+var fib  = function(n){
+	if(n<2) return n;
+	return fib(n-1) + fib(n-2);
+};
+
 var App = () =>{
 
   const middlewares = [];
@@ -23,9 +28,9 @@ var App = () =>{
 
 const app = App();
 
-const md0 = next=>setTimeout(()=>{console.log('MDW-0');next()},1000);
-const md1 = next=>setTimeout(()=>{console.log('MDW-1');next()},2000);
-const md2 = next=>setTimeout(()=>{console.log('MDW-2');next()},3000);
+const md0 = next=>{console.log(`Fibbonaci de ${30} = ${fib(30)}`);next()};
+const md1 = next=>{console.log(`Fibbonaci de ${40} = ${fib(40)}`);next()};
+const md2 = next=>{console.log(`Fibbonaci de ${45} = ${fib(45)}`);next()};
 
 const md3 = next=>{console.log('MDW-3');next()};
 const md4 = next=>{console.log('MDW-4');next()};
